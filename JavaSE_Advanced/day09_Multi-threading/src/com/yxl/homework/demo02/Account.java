@@ -1,38 +1,47 @@
 package com.yxl.homework.demo02;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class Account {
-    private String cardid;
-    private  double money;
+    private String cardId;
+    private double money;
+    private final Lock lock = new ReentrantLock();
 
 
-    public   void drawMoney(double money){
-        String name=Thread.currentThread().getName();
-        synchronized (this) {
-            if (this.money >= money) {
-                System.out.println(name + this.cardid + "当前余额" + this.money);
-                this.money -= money;
-                System.out.println(name + this.cardid + "扣款" + money + "后余额：=" + this.money);
+    public void withdrawMoney(double money){
 
-            } else {
-                System.out.println(name + this.cardid + "余额不足" + this.money);
-            }
+        String name =Thread.currentThread().getName();
+        lock.lock();
+        if (this.money>=money){
+            System.out.println(name+"当前余额"+this.money);
+            this.money-=money;
+            System.out.println(name+"取款"+money+" ---后余额为"+this.money);
+
+        }else {
+            System.out.println(name+"余额不足不能取钱");
         }
+        lock.unlock();
+
+
     }
+
+
 
     @Override
     public String toString() {
         return "Account{" +
-                "cardid='" + cardid + '\'' +
+                "cardId='" + cardId + '\'' +
                 ", money=" + money +
                 '}';
     }
 
-    public String getCardid() {
-        return cardid;
+    public String getCardId() {
+        return cardId;
     }
 
-    public void setCardid(String cardid) {
-        this.cardid = cardid;
+    public void setCardId(String cardId) {
+        this.cardId = cardId;
     }
 
     public double getMoney() {
@@ -43,8 +52,8 @@ public class Account {
         this.money = money;
     }
 
-    public Account(String cardid, double money) {
-        this.cardid = cardid;
+    public Account(String cardId, double money) {
+        this.cardId = cardId;
         this.money = money;
     }
 }

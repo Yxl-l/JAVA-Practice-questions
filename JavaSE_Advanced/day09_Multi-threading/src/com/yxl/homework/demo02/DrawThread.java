@@ -2,7 +2,7 @@ package com.yxl.homework.demo02;
 
 
 public class DrawThread extends Thread {
-    private Account account;
+    Account account ;
 
     public DrawThread(String name, Account account) {
         super(name);
@@ -10,9 +10,8 @@ public class DrawThread extends Thread {
     }
 
     @Override
-    public void run(){
-      account.drawMoney(10000);
-
+   public void run(){
+        account.withdrawMoney(10000);
     }
 
 
