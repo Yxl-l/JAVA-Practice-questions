@@ -23,13 +23,13 @@ public class Warrior extends Character implements Skill{
 
     @Override
     public void useUlitmate() {
-        System.out.print("德玛西亚正义 造成目标已损失生命值40%+400的真实伤害（无视减伤效果）🎇🎇🎇🎇🎇");
+        System.out.print("德玛西亚正义 造成目标已损失生命值40%+4000的真实伤害（无视减伤效果）🎇🎇🎇🎇🎇");
 
     }
 
     @Override
     public void useDefensiveSkill() {
-        System.out.println("狂徒 回复30%最大生命值");
+        System.out.println("狂徒 回复20%最大生命值");
 
     }
 }

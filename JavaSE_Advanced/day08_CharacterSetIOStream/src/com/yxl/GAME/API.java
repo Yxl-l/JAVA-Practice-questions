@@ -124,7 +124,7 @@ public class API {
         System.out.println("选择盖伦的操作");
         Scanner sc = new Scanner(System.in);
         System.out.println("1.普通物理攻击造成700点物理伤害" +"\t"+"\t"+"2.荒漠之咬 - 造成200点物理伤害并破除对方护盾");
-        System.out.println("3.坚定之心 -收到伤害减少20%" +"\t"+"\t"+"\t"+"4.限定大招-德玛西亚正义 造成目标已损失生命值40%+500的真实伤害（无视减伤效果）");
+        System.out.println("3.坚定之心 -收到伤害减少20%" +"\t"+"\t"+"\t"+"4.限定大招-德玛西亚正义 造成目标已损失生命值40%+400的真实伤害（无视减伤效果）");
         System.out.println("5.狂徒 回复20%最大生命值" );
         int tab = sc.nextInt();
         switch (tab){
@@ -148,8 +148,8 @@ public class API {
                 if (big){
                     big=false;
                 gailun.useUlitmate();
-                System.out.println("实际对光辉造成"+(0.4*(3000-guanghui.getHealth())+500)+"真实伤害伤害!!!");
-                withholdBlood((int) (0.4*(3000-guanghui.getHealth())+500),guanghui);
+                System.out.println("实际对光辉造成"+(0.4*(3000-guanghui.getHealth())+400)+"真实伤害伤害!!!");
+                withholdBlood((int) (0.4*(3000-guanghui.getHealth())+400),guanghui);
                 return big;
                 }
                 else {
