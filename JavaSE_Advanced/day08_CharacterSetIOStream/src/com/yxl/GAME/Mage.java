@@ -22,7 +22,7 @@ public class Mage extends Character implements Skill {
 
     @Override
     public void useUlitmate() {
-        System.out.print("终极闪光 造成1000点雷元素魔法伤害🎇🎇🎇🎇🎇");
+        System.out.print("终极闪光 造成1500点雷元素魔法伤害🎇🎇🎇🎇🎇");
     }
 
     @Override
