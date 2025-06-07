@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="10e420c4-2393-415f-a03d-e21f36574777" name="更改" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/day03-operator/src/com/yxl/operator/Assignment.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/day03-operator/src/com/yxl/operator/Self.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2wwPiWsUOtMBXLxRkdFB9JdiKrM" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Java Project/Javase project/day07-object/src/com/yxl/time&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Code Search&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
+    &quot;应用程序.A20.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Assignment.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Case.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Case1.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Case2.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Case3.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Code1.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Code2.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Code3.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Code4.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Code5.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Code6.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Code7.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Code8.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Code9.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Coed1.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Coed2.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Coed3.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Coed4.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Coed6.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Coed7.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Cpde4.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Demo06.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Demo07.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Demo08.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Demo09.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Demo1.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Demo2.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Demo3.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.H1.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.H2.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.H3.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.H4.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.H5.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.H6.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.H7.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.H8.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.HelloWord.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Homework1.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Homework2.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Homework3.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Homework4.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Homework5.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Homework6.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.JiSuanQi.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.LuoJi.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.MeiJu.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Operator.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.QiuHe.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Qwe.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.RelationalOperators.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Restaurant.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.SanYuan.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Self.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.SnakeGame.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.box.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.bug1.executor&quot;: &quot;Debug&quot;,
+    &quot;应用程序.com.yxl.Demo03.Demo2.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.com.yxl.Demo03.Demo3.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.com.yxl.homework.H4.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.exegesis.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.k.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.scanner.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.suijishu.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.variable.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.zhuanhuan.executor&quot;: &quot;Run&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Java Project\Javase project\day07-object\src\com\yxl\time" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Java Project\Javase project\day09-Case\src\com\yxl" />
+      <recent name="D:\Java Project\Javase project\day08-objectGJ\src\com\yxl\Demo02" />
+      <recent name="D:\Java Project\Javase project\day08-objectGJ\src\com\yxl\Demo01" />
+    </key>
+  </component>
+  <component name="RunManager" selected="应用程序.A20">
+    <configuration name="A20" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yxl.A20" />
+      <module name="day09-Case" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yxl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Case" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yxl.Case" />
+      <module name="day09-Case" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yxl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="H1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yxl.Homework.H1" />
+      <module name="day08-objectGJ" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yxl.Homework.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="H2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yxl.Homework.H2" />
+      <module name="day08-objectGJ" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yxl.Homework.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="k" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yxl.k" />
+      <module name="day09-Case" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yxl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.A20" />
+        <item itemvalue="应用程序.k" />
+        <item itemvalue="应用程序.Case" />
+        <item itemvalue="应用程序.H2" />
+        <item itemvalue="应用程序.H1" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="10e420c4-2393-415f-a03d-e21f36574777" name="更改" comment="" />
+      <created>1746949791689</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1746949791689</updated>
+      <workItem from="1746949792714" duration="3989000" />
+      <workItem from="1746953964284" duration="19000" />
+      <workItem from="1746953994745" duration="78000" />
+      <workItem from="1746954078728" duration="2145000" />
+      <workItem from="1746956509073" duration="7000" />
+      <workItem from="1746956523475" duration="585000" />
+      <workItem from="1746957116113" duration="7000" />
+      <workItem from="1746963221326" duration="144000" />
+      <workItem from="1747010645057" duration="6683000" />
+      <workItem from="1747031192349" duration="9874000" />
+      <workItem from="1747049897192" duration="1690000" />
+      <workItem from="1747052479827" duration="51000" />
+      <workItem from="1747182570038" duration="1237000" />
+      <workItem from="1747184549344" duration="6612000" />
+      <workItem from="1747193771125" duration="1312000" />
+      <workItem from="1747203312020" duration="11511000" />
+      <workItem from="1747216986957" duration="3568000" />
+      <workItem from="1747225292363" duration="1440000" />
+      <workItem from="1747268996865" duration="10638000" />
+      <workItem from="1747290038908" duration="12286000" />
+      <workItem from="1747309217422" duration="2419000" />
+      <workItem from="1747311686931" duration="1874000" />
+      <workItem from="1747361254256" duration="2512000" />
+      <workItem from="1747374632395" duration="9000" />
+      <workItem from="1747374751065" duration="7703000" />
+      <workItem from="1747441820324" duration="889000" />
+      <workItem from="1747443247792" duration="14000" />
+      <workItem from="1747443646464" duration="7319000" />
+      <workItem from="1747462566545" duration="21300000" />
+      <workItem from="1747528674016" duration="9881000" />
+      <workItem from="1747549088372" duration="19594000" />
+      <workItem from="1747700898676" duration="10595000" />
+      <workItem from="1747721944663" duration="11196000" />
+      <workItem from="1747741221083" duration="6228000" />
+      <workItem from="1747747892993" duration="868000" />
+      <workItem from="1747787310147" duration="1385000" />
+      <workItem from="1747788702979" duration="10187000" />
+      <workItem from="1747810396096" duration="19087000" />
+      <workItem from="1747834627823" duration="9000" />
+      <workItem from="1747879873819" duration="6215000" />
+      <workItem from="1747893004034" duration="10864000" />
+      <workItem from="1747904129772" duration="247000" />
+      <workItem from="1747960369767" duration="11503000" />
+      <workItem from="1747981679031" duration="3721000" />
+      <workItem from="1747990915783" duration="1861000" />
+      <workItem from="1747999002924" duration="2540000" />
+      <workItem from="1748001564214" duration="663000" />
+      <workItem from="1748219498783" duration="536000" />
+      <workItem from="1748220043401" duration="1542000" />
+      <workItem from="1748221596010" duration="74000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
