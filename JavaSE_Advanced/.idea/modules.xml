@@ -11,10 +11,8 @@
       <module fileurl="file://$PROJECT_DIR$/day06_Set Map/day06_Set Map.iml" filepath="$PROJECT_DIR$/day06_Set Map/day06_Set Map.iml" />
       <module fileurl="file://$PROJECT_DIR$/day07_StreamFileRecursion/day07_StreamFileRecursion.iml" filepath="$PROJECT_DIR$/day07_StreamFileRecursion/day07_StreamFileRecursion.iml" />
       <module fileurl="file://$PROJECT_DIR$/day08_CharacterSetIOStream/day08_CharacterSetIOStream.iml" filepath="$PROJECT_DIR$/day08_CharacterSetIOStream/day08_CharacterSetIOStream.iml" />
-
       <module fileurl="file://$PROJECT_DIR$/day09_Multi-threading/day09_Multi-threading.iml" filepath="$PROJECT_DIR$/day09_Multi-threading/day09_Multi-threading.iml" />
-=======
->>>>>>> 6b9a9702f42821f31d5a9767582f2ba2cfd3a733
+      <module fileurl="file://$PROJECT_DIR$/day10_Dynamic proxy multithreading/day10_Dynamic proxy multithreading.iml" filepath="$PROJECT_DIR$/day10_Dynamic proxy multithreading/day10_Dynamic proxy multithreading.iml" />
     </modules>
   </component>
 </project>
