@@ -5,10 +5,8 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 public class AnimalProxy {
-    private Animal animal;
 
     public AnimalProxy(Animal animal) {
-        this.animal = animal;
     }
 
     public static Animal AProxy(Animal animal){
