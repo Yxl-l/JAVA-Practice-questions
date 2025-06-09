@@ -1,4 +1,4 @@
-package yxl.com.array;
+package com.yxl.array;
 
 public class demo03 {
 
