@@ -1,5 +1,7 @@
 package com.yxl.array;
 
+import java.util.Arrays;
+
 /**
  * 给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使得出现次数超过两次的元素只出现两次 ，返回删除后数组的新长度。
  *
@@ -39,24 +41,31 @@ package com.yxl.array;
 
 public class demo03 {
     public static void main(String[] args) {
-        int[]a = {5,4,8,5,7,8,8,8,7,7,7,6,7,2,1,0,4};
+        int[]nums = {5,4,8,5,7,8,8,4,8,7,7,7,6,7,2,1,0,4};
         int cont=0;
-        int b;
-        for (int i = 0; i < a.length; i++) {
-            b=a[i];
-            for (int j = 0; j < a.length; j++) {
-                if (b==a[j]){
-                    cont++;
-                    if (cont>2){
-
-                    }
-
-            }
-
-            }
-
+        Arrays.sort(nums);
+        for (int num : nums) {
+            System.out.print(num + " ");
         }
+        System.out.println();
+
+        int j = 2; // 快指针，从第三个元素开始
+
+        for (int i = 2; i < nums.length; i++) {
+            // 如果当前元素不等于前面两个位置的元素，说明可以保留
+            if (nums[i] != nums[j - 2]) {
+                nums[j] = nums[i];
+                j++;
+            }
+        }
+
+
+        // 打印排序结果
+        for (int num : nums) {
+            System.out.print(num + " ");
+        }
+    }
+
 
     }
 
-}
