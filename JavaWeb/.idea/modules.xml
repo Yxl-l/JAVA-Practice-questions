@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/JavaWeb.iml" filepath="$PROJECT_DIR$/JavaWeb.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day_03/day_03.iml" filepath="$PROJECT_DIR$/day_03/day_03.iml" />
-    </modules>
-  </component>
-</project>
