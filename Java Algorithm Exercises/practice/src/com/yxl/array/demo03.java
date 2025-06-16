@@ -42,12 +42,18 @@ import java.util.Arrays;
 public class demo03 {
     public static void main(String[] args) {
         int[]nums = {5,4,8,5,7,8,8,4,8,7,7,7,6,7,2,1,0,4};
-        int cont=0;
-        Arrays.sort(nums);
-        for (int num : nums) {
-            System.out.print(num + " ");
+
+        for (int i = 0; i < nums.length-1; i++) {
+            for (int j = 0; j <nums.length-1-i ; j++) {
+                if (nums[j]>=nums[j+1]){
+                    int a = nums[j+1];
+                    nums[j+1]=nums[j];
+                    nums[j]=a;
+                }
+            }
         }
-        System.out.println();
+
+
 
         int j = 2; // 快指针，从第三个元素开始
 
@@ -61,9 +67,10 @@ public class demo03 {
 
 
         // 打印排序结果
-        for (int num : nums) {
-            System.out.print(num + " ");
+        for (int i = 0; i < nums.length ; i++) {
+            System.out.print(nums[i]);
         }
+        System.out.println(j);
     }
 
 

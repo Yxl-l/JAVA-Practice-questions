@@ -33,18 +33,24 @@ import java.util.Arrays;
 
 public class demo01 {
     public static void merge(int[] nums1, int m, int[] nums2, int n) {
-        int[] nums3 = new int[m + n];
         //System.arraycopy(源数组, 源起始位置, 目标数组, 目标起始位置, 复制长度)
-        System.arraycopy(nums1, 0, nums3, 0,m);
-        System.arraycopy(nums2, 0, nums3, m,n);
-        nums1=nums3;
-        Arrays.sort(nums1);
-        System.out.print(Arrays.toString(nums1));
+        int i = m - 1;   // nums1 的有效元素末尾
+        int j = n - 1;   // nums2 的末尾
+        int k = m + n - 1; // 合并后的位置
+        while (i >= 0 && j >= 0) {
+            if (nums1[i] > nums2[j]) {
+                nums1[k--] = nums1[i--];
+            } else {
+                nums1[k--] = nums2[j--];
+            }
+        }
+        while (j >= 0) {
+            nums1[k--] = nums2[j--];
+        }
+
+
+
+        }
     }
 
-    public static void main(String[] args) {
-        int[] nums1={};int m=0,n=4;
-        int[] nums2={0,2,3,4};
-        merge(nums1,m,nums2,n);
-    }
-}
+
