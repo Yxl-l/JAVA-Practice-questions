@@ -1,6 +1,6 @@
 package com.homework.dome03;
 
-public class Text {
+public class Test {
     public static void love(People people){
         people.write();
     }

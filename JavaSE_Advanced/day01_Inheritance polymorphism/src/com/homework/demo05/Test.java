@@ -1,6 +1,6 @@
 package com.homework.demo05;
 
-public class Text {
+public class Test {
     public static void main(String[] args) {
         Animal cat = new Cat();
         Zoo.makeAnimalSound(cat);

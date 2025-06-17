@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.function.Consumer;
 
-public class Text3 {
+public class Test3 {
     public static void main(String[] args) {
         ArrayList<Student> arr = new ArrayList<>();
         arr.add(new Student("cxk",18,1990));

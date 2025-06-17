@@ -3,7 +3,7 @@ package com.homework.demo06;
 
 import java.util.Scanner;
 
-public class Text {
+public class Test {
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
         while (true) {

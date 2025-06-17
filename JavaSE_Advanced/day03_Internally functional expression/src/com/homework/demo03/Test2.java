@@ -3,7 +3,7 @@ package com.homework.demo03;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class Text2 {
+public class Test2 {
     public static void main(String[] args) {
         Student[] students = new Student[3];
         students[0]=new Student("cxk",18,1990);

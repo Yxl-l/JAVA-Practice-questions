@@ -1,6 +1,6 @@
 package com.homework.dome02;
 
-public class Text {
+public class Test {
     public static void Zom(Animal animal){
         animal.run();
         animal.eat();

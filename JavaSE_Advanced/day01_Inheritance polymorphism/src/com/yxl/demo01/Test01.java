@@ -1,6 +1,6 @@
 package com.yxl.demo01;
 
-public class Text01 {
+public class Test01 {
     public static void main(String[] args) {
         Student s1=new Student(01);
         s1.age=18;

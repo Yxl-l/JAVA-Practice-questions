@@ -3,7 +3,7 @@ package com.homework.demo03;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class Text {
+public class Test {
     public static void main(String[] args) {
         Integer [] arr = {12,2324,13,1,224,121314};
 //        Arrays.sort(arr, new Comparator<Integer>() {

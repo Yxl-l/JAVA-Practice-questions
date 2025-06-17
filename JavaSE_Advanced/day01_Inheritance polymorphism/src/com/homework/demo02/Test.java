@@ -1,6 +1,6 @@
 package com.homework.demo02;
 
-public class Text {
+public class Test {
     public static void main(String[] args) {
         MyClass myClass=new MyClass();
         myClass.setValue(10);

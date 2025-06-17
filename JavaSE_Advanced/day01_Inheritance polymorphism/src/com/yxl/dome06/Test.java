@@ -1,6 +1,6 @@
 package com.yxl.dome06;
 
-public class Text {
+public class Test {
     public static void main(String[] args) {
         Animal cat=new Cat();
         Animal dog=new Dog();

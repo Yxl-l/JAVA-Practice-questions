@@ -1,6 +1,6 @@
 package com.homework.demo01;
 
-public class Text {
+public class Test {
     public static void main(String[] args) {
         Student student = new Student();
         Student wstudent = new Student();
