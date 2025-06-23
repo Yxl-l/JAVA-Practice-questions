@@ -5,25 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a48fa767-22c3-445b-84c2-c941a1e131a8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../JdbcDemo/src/main/java/com/yxl/jdbcdemo/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../JdbcDemo/src/test/java/com/yxl/jdbcdemo/JDBCTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MybataisDemo02/src/main/java/com/yxl/mybatisDemo02/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MybataisDemo02/src/main/java/com/yxl/mybatisDemo02/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MybataisDemo02/src/main/resources/com/yxl/mybatisDemo02/mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/yxl/mapper/StudentMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MybatisHomework01/src/main/java/com/yxl/MybatisHomeWorkApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MybatisHomework01/src/main/java/com/yxl/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MybatisHomework01/src/main/java/com/yxl/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MybatisHomework01/src/main/java/com/yxl/pojo/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MybatisHomework01/src/main/java/com/yxl/service/Impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MybatisHomework01/src/main/java/com/yxl/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MybatisHomework01/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MybatisHomework05/src/main/java/com/yxl/mybatishomework05/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MybatisHomework05/src/main/java/com/yxl/mybatishomework05/pojo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MybatisHomework05/src/main/java/com/yxl/mybatishomework05/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MybatisHomework05/src/main/java/com/yxl/mybatishomework05/mapper/UserMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,6 +196,7 @@
       <workItem from="1750598752326" duration="746000" />
       <workItem from="1750599507393" duration="4804000" />
       <workItem from="1750639571837" duration="206000" />
+      <workItem from="1750641277367" duration="260000" />
     </task>
     <servers />
   </component>

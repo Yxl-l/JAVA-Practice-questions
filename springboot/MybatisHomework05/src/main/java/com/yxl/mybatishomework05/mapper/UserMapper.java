@@ -11,4 +11,7 @@ public interface UserMapper {
 
     @Select("select * from user ")
     List<User> userSelect();
+
+    @Select("select * from user where name like concat('%',#{s},'%')")
+    List<User> select(String s);
 }
