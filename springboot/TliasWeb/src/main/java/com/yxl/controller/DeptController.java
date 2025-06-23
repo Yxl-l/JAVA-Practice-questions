@@ -20,12 +20,10 @@ public class DeptController {
 
     /**
      * 查询全部
-     * @return
      */
     @GetMapping
-    public List<Dept> getDept(){
-
-        return deptService.deptService();
+    public Result getDept(){
+        return Result.success(deptService.deptService());
     }
 /**
  * 根据id删除
