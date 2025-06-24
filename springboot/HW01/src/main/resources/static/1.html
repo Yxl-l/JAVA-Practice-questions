@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <style>
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --accent-color: #4895ef;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+  }
+
+  * {
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+
+  body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  #app {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .search-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  input, select {
+    padding: 12px 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 16px;
+    background: white;
+    flex: 1;
+    min-width: 200px;
+  }
+
+  input:focus, select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(72, 149, 239, 0.2);
+  }
+
+  button {
+    padding: 12px 25px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  button:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 30px 0;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  }
+
+  th {
+    background: var(--primary-color);
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  td {
+    padding: 15px;
+    background: white;
+    border-bottom: 1px solid #e9ecef;
+  }
+
+  tr:hover td {
+    background: #f8f9fa;
+    transform: scale(1.01);
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+  }
+
+  .pagination-info {
+    color: var(--dark-color);
+    font-size: 14px;
+  }
+
+  .pagination-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+</style>
+  <body>
+    <div id="app">
+      
+        <input type="text" placeholder="姓名"  v-model="searchEmp.name"/>
+        <select name="gender" v-model="searchEmp.gender">
+          <option value>性别</option>
+          <option value="1">男</option>
+          <option value="2">女</option>
+        </select>
+        <button type="button" >查询</button>
+        <button type="button" @click="clear">清空</button>
+
+        <table>
+            <thead>
+                <tr >
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>创建日期</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in empList">
+                    <td>{{item.name}}</td>
+                    <td>
+                        <span v-if="item.gender===1">男</span>
+                        <span v-if="item.gender===2">女</span></td>
+                    <td>{{item.updateTime}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <span>共{{sum}}条数据</span>
+             <button type="button" @click="front">上一页</button>
+             <button type="button" @click="next">下一页</button>
+             <span>共{{Math.ceil(sum/5)}}页，当前第{{number}}页</span>
+        </div>
+      
+    </div>
+
+    <script type="module">
+      import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+      createApp({
+        data() {
+          return {
+            sum:0,
+            number:0,
+             searchEmp:{
+                name: '',
+                gender: ''
+             },
+             empList:[]
+
+          };
+        },
+        methods: {
+            clear(){
+                this.searchEmp={
+                     name: '',
+                    gender: ''
+                }
+            },
+            //总条数
+           search(){
+            axios.get('http://localhost:8080/user').then((result) => {
+              this.sum=result.data.data//返回总条数
+              console.log(result.data.data)
+              this.next();
+            }).catch((err) => {
+              console.log(err)
+            });
+           },
+           //下一页
+           next(){
+            if(this.number<Math.ceil(this.sum / 5)){
+             this.number+=1
+            axios.get('http://localhost:8080/user/go5',{params:{number:this.number}})
+            .then((result) => {
+              console.log(result.data.data)
+              this.empList=result.data.data
+            }).catch((err) => {
+              
+            });
+           }else{
+            alert('已经是最后一页了')
+           }
+           
+
+
+           },
+           //上一页
+           front(){
+             if(this.number>1){
+             this.number-=1
+            axios.get('http://localhost:8080/user/go5',{params:{number:this.number}})
+            .then((result) => {
+              console.log(result.data.data)
+               this.empList=result.data.data
+
+            }).catch((err) => {
+              
+            });
+           }else{
+            alert('第一页了')
+           }
+
+           }
+
+
+
+        },
+      mounted() {
+      this.search();
+      
+      }
+      }).mount("#app");
+    </script>
+  </body>
+</html>
