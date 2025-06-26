@@ -22,7 +22,7 @@ public class ClazzServiceImpl implements ClazzService {
     }
 
     @Autowired
-private ClazzMapper clazzMapper;
+    private ClazzMapper clazzMapper;
 
 
 
