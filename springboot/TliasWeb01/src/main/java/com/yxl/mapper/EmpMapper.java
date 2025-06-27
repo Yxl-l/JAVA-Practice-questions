@@ -24,17 +24,12 @@ public interface EmpMapper {
             "value (#{username},#{name},#{gender},#{phone},#{job},#{salary},#{image},#{entryDate},#{deptId},#{createTime},#{updateTime})")
     void postEmp(Emp emp);
 
-
-
-
-
     /**
      * 查询所有的员工及其对应的部门名称
      */
 
     public List<Emp> list(EmpQueryParam empQueryParam);
-//    @Select("select count(*) from emp left join dept on emp.dept_id = dept.id")
-//    Integer countEmp();
-//@Select("select * from emp left join dept on emp.dept_id = dept.id limit #{index},#{pageSize}")
-//    List<Emp> getEmp(Integer index, Integer pageSize);
+
+    List<Emp> getEmpList();
+
 }

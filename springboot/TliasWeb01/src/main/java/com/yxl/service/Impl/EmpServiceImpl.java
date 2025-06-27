@@ -19,6 +19,10 @@ import java.util.List;
 
 @Service
 public class EmpServiceImpl implements EmpService {
+    @Override
+    public List<Emp> getEmpList() {
+        return empMapper.getEmpList();
+    }
 
     @Autowired
     private EmpMapper empMapper;

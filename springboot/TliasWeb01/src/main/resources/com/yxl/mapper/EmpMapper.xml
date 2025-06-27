@@ -22,4 +22,7 @@
             </if>
         </where>
     </select>
+    <select id="getEmpList" resultType="com.yxl.pojo.Emp">
+        select e.*, d.name deptName from emp  e left join dept  d on e.dept_id = d.id
+    </select>
 </mapper>

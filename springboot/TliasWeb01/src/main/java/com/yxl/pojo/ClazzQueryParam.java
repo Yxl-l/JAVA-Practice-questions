@@ -1,5 +1,4 @@
 package com.yxl.pojo;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,15 +8,13 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EmpQueryParam {
-    
+public class ClazzQueryParam {
+
     private Integer page = 1; //页码
     private Integer pageSize = 10; //每页展示记录数
-    private String name; //姓名
-    private Integer gender; //性别
+    private String name; //班级名
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate begin; //入职开始时间
+    private LocalDate beginDate; //开课时间
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate end; //入职结束时间
-    
+    private LocalDate endDate; //结课时间
 }

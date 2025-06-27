@@ -14,14 +14,23 @@ import com.yxl.pojo.Result;
 public class EmpController {
     @Autowired
     private EmpService empService;
+    /**
+     * 查询所有员工
+     */
+    @GetMapping("/list")
+    public Result gatEmpList(){
+        log.info("查询所有");
+        return Result.success(empService.getEmpList());
+    }
+
+
+
 /**
  *  条件分页查询
  */
     @GetMapping
     public Result getEmp(EmpQueryParam empQueryParam){
         log.info("查询请求参数： {}", empQueryParam);
-
-
         return Result.success(empService.getEmp(empQueryParam));
 
     }
