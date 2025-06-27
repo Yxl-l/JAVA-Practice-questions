@@ -4,11 +4,10 @@ import com.yxl.pojo.Emp;
 import com.yxl.pojo.EmpQueryParam;
 import com.yxl.pojo.PageResult;
 
-import java.time.LocalDate;
-
 public interface EmpService {
-    PageResult getEmp(EmpQueryParam empQueryParam);
 
+
+    PageResult getEmp(EmpQueryParam empQueryParam);
 
     void postEmp(Emp emp);
 }

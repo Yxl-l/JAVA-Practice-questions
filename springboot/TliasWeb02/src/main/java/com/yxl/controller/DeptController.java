@@ -1,4 +1,4 @@
-package com.yxl.Controller;
+package com.yxl.controller;
 
 import com.yxl.pojo.Dept;
 import com.yxl.pojo.Result;

@@ -10,6 +10,4 @@ public interface ClazzService {
 
     List<Clazz> getClazz();
 
-    Clazz getClazzBy(String name, String begin, String end, Integer page, Integer pageSize);
-
 }

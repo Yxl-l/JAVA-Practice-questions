@@ -19,7 +19,5 @@ public interface ClazzMapper {
 
     @Select("select * from clazz")
     List<Clazz> getClazz();
-
-    @Select("select * from clazz where name=#{name} or begin_date=#{begin} or end_date=#{end} limit #{page},#{pageSize}")
-    Clazz getClazzBy(String name, String begin, String end, Integer page, Integer pageSize);
 }
+

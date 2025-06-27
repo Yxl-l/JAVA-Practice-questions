@@ -11,10 +11,7 @@ import java.util.List;
 
 @Service
 public class ClazzServiceImpl implements ClazzService {
-    @Override
-    public Clazz getClazzBy(String name, String begin, String end, Integer page, Integer pageSize) {
-        return clazzMapper.getClazzBy(name,begin,end,page,pageSize);
-    }
+
 
     @Override
     public List<Clazz> getClazz() {

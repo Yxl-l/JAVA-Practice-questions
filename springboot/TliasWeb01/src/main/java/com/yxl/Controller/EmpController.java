@@ -1,31 +1,39 @@
-//package com.yxl.Controller;
-//
-//import com.yxl.pojo.PageResult;
-//import com.yxl.service.EmpService;
-//import lombok.extern.slf4j.Slf4j;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.web.bind.annotation.GetMapping;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RequestParam;
-//import org.springframework.web.bind.annotation.RestController;
-//
-//import com.yxl.pojo.Result;
-//
-//@Slf4j
-//@RequestMapping("/emps")
-//@RestController
-//public class EmpController {
-//    @Autowired
-//    private EmpService empService;
-//
-//    @GetMapping
-//    public Result getEmp(@RequestParam(defaultValue = "1") Integer page,
-//                         @RequestParam(defaultValue = "10")Integer pageSize){
-//        log.info("查询员工信息, page={}, pageSize={}", page, pageSize);
-//
-//       PageResult pageResult= empService.getEmp(page,pageSize);
-//        return Result.success(pageResult);
-//
-//    }
-//
-//}
+package com.yxl.Controller;
+import com.yxl.pojo.Emp;
+import com.yxl.pojo.EmpQueryParam;
+import com.yxl.pojo.PageResult;
+import com.yxl.service.EmpService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import com.yxl.pojo.Result;
+
+@Slf4j
+@RequestMapping("/emps")
+@RestController
+public class EmpController {
+    @Autowired
+    private EmpService empService;
+/**
+ *  条件分页查询
+ */
+    @GetMapping
+    public Result getEmp(EmpQueryParam empQueryParam){
+        log.info("查询请求参数： {}", empQueryParam);
+
+
+        return Result.success(empService.getEmp(empQueryParam));
+
+    }
+
+    /**
+     *新增
+     */
+    @PostMapping
+    public Result postEmp(@RequestBody Emp emp){
+        log.info("请求参数emp: {}", emp);
+        empService.postEmp(emp);
+        return Result.success("新增成功");
+    }
+
+}
