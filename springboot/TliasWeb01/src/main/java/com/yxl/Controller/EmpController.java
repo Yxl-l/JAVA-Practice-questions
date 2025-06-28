@@ -8,12 +8,40 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.yxl.pojo.Result;
 
+import java.util.List;
+
 @Slf4j
 @RequestMapping("/emps")
 @RestController
 public class EmpController {
     @Autowired
     private EmpService empService;
+    /**
+     * 回显员工信息，工作履历
+     */
+    @GetMapping("/{id}")
+    public Result getEmpId(@PathVariable Integer id){
+        log.info("回显{}",id);
+        return  Result.success(empService.getEmpId(id));
+    }
+    /**
+     * 修改员工
+     */
+    @PutMapping
+    public Result putEmp(@RequestBody Emp emp){
+        log.info("修改员工信息");
+        empService.putEmp(emp);
+        return Result.success("修改成功");
+    }
+    /**
+     * 批量删除员工
+     */
+    @DeleteMapping
+    public Result deleteEmp(@RequestParam List<Integer> ids){
+        log.info("删除员工{}",ids);
+        empService.delete(ids);
+        return Result.success("删除成功");
+    }
     /**
      * 查询所有员工
      */

@@ -16,4 +16,9 @@
 <!--        4. open：遍历开始前拼接的片段-->
 <!--        5. close：遍历结束后拼接的片段-->
     </insert>
+    <delete id="deleteEmpExpr">
+            delete from emp_expr where emp_id in <foreach collection="ids" item="empId" separator="," open="(" close=")">
+                                                    #{empId}
+                                            </foreach>
+    </delete>
 </mapper>

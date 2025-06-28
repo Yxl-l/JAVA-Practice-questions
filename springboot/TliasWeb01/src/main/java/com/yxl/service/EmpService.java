@@ -14,4 +14,10 @@ public interface EmpService {
     void postEmp(Emp emp);
 
     List<Emp> getEmpList();
+
+    void delete(List<Integer> ids);
+
+    Emp getEmpId(Integer id);
+
+    void putEmp(Emp emp);
 }

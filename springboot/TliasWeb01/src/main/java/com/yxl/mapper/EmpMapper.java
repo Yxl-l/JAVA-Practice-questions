@@ -25,11 +25,23 @@ public interface EmpMapper {
     void postEmp(Emp emp);
 
     /**
-     * 查询所有的员工及其对应的部门名称
+     * 条件分页查询
      */
-
-    public List<Emp> list(EmpQueryParam empQueryParam);
-
+     List<Emp> list(EmpQueryParam empQueryParam);
+    /**
+     *查询所有员工
+     */
     List<Emp> getEmpList();
-
+    /**
+     * 批量删除
+     */
+    void deleteEmp(List<Integer> ids);
+    /**
+     * 根据id查询
+     */
+    Emp getEmpId(Integer id);
+    /**
+     * 修改员工信息
+     */
+    void putEmp(Emp emp);
 }
