@@ -3,13 +3,11 @@ package com.yxl.mapper;
 import com.yxl.pojo.Emp;
 import com.yxl.pojo.EmpQueryParam;
 import com.yxl.pojo.PageResult;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface EmpMapper {
@@ -44,4 +42,16 @@ public interface EmpMapper {
      * 修改员工信息
      */
     void putEmp(Emp emp);
+
+    /**
+     * 各部门员工数量统计
+     */
+    @MapKey("pos")
+    List<Map<String, Object>> getEmpJobData();
+    /**
+     * 员工性别统计
+     */
+    @MapKey("name")
+    List<Map<String, Object>> getEmpGenderData();
+
 }

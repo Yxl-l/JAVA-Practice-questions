@@ -3,12 +3,10 @@ package com.yxl.service.Impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.yxl.mapper.ClazzMapper;
-import com.yxl.mapper.StudentMapper;
 import com.yxl.pojo.Clazz;
 import com.yxl.pojo.ClazzQueryParam;
 import com.yxl.pojo.PageResult;
 import com.yxl.service.ClazzService;
-import com.yxl.utils.NotNullException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +19,6 @@ public class ClazzServiceImpl implements ClazzService {
 
     @Autowired
     private ClazzMapper clazzMapper;
-    @Autowired
-    private StudentMapper studentMapper;
 
     @Override
     public Clazz getClassId(Integer id) {
@@ -39,14 +35,8 @@ public class ClazzServiceImpl implements ClazzService {
      */
     @Override
     public void deleteClazz(Integer id) {
-        //查询班级下是否有学生
-        int count = studentMapper.countClazzStudents(id);
-        if(count>0){
-            throw new NotNullException("对不起，当前班级下有学生，不能直接删除！");
-        }
         clazzMapper.deleteClazz(id);
     }
-
     /**
      * 分页条件查询
      */

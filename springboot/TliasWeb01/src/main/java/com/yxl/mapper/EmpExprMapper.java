@@ -10,7 +10,7 @@ public interface EmpExprMapper {
     /**
      *员工工作履历
      */
-    public void insertBatch(List<EmpExpr> exprList);
+    void insertBatch(List<EmpExpr> exprList);
 
     void deleteEmpExpr(List<Integer> ids);
 }

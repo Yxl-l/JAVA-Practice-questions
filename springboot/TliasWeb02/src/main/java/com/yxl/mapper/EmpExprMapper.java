@@ -10,13 +10,17 @@ import java.util.List;
 
 @Mapper
 public interface EmpExprMapper {
+
+//    添加
     void expr(List<EmpExpr> list);
+
+
 
 
     /**
      *
-     *员工工作履历
+     *删除员工工作履历
      */
-
+    void deleteEmpExpr(List<Integer> ids);
 
 }

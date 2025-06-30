@@ -7,7 +7,7 @@ import java.util.List;
 public interface DeptService {
     List<Dept> getDept ();
 
-    void deleteDept(Integer id);
+    Integer deleteDept(Integer id);
 
     void postDept(Dept dept);
 

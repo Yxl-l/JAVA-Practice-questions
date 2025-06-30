@@ -1,0 +1,80 @@
+<!--定义Mapper映射文件的约束和基本结构-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yxl.mapper.StudentMapper">
+    <insert id="postStudent">
+        insert into student(name,no,gender,phone,id_card,is_college,address,degree,graduation_date,clazz_id,violation_count,violation_score,create_time,update_time) values(#{name},#{no},#{gender},#{phone},#{idCard},#{isCollege},#{address},#{degree},#{graduationDate},#{clazzId},#{violationCount},#{violationScore},#{createTime},#{updateTime})
+    </insert>
+<!--    修改学员信息-->
+    <update id="putStudent">
+        update student
+        <set>
+            <if test="name!=null and name!=''">name=#{name},</if>
+            <if test="no!=null and no!=''">no=#{no},</if>
+            <if test="gender!=null and gender!=''">gender=#{gender},</if>
+            <if test="phone!=null and phone!=''">phone=#{phone},</if>
+            <if test="idCard!=null and idCard!=''">id_card=#{idCard},</if>
+            <if test="isCollege!=null and isCollege!=''">is_college=#{isCollege},</if>
+            <if test="address!=null ">address=#{address},</if>
+            <if test="degree!=null">degree=#{degree},</if>
+            <if test="graduationDate!=null ">graduation_date=#{graduationDate},</if>
+            <if test="clazzId!=null and clazzId!=''">clazz_id=#{clazzId},</if>
+            <if test="updateTime!=null">update_time=#{updateTime},</if>
+        </set> where id = #{id}
+    </update>
+<!--    修改学员违纪-->
+    <update id="putViolationStudent">
+        update student <set>
+        violation_count = violation_count + 1,
+        violation_score = violation_score + #{score}
+    </set> where id = #{id}
+    </update>
+<!--    删除学员-->
+    <delete id="deleteStudent">
+        delete from student where id in <foreach collection="ids" item="id" separator="," open="(" close=")">
+        #{id}
+    </foreach>
+    </delete>
+<!--条件查询学员-->
+    <select id="getStudent" resultType="com.yxl.pojo.Student">
+        select s.*,c.name clazzName from student s LEFT JOIN clazz c on s.clazz_id=c.id
+        <where>
+            <if test="name!=null and name!=''">and s.name like concat('%',#{name},'%')</if>
+            <if test="degree!=null and degree!=''">and s.degree = #{degree}</if>
+            <if test="clazzId!=null and clazzId!=''">and s.degree = #{degree}</if>
+        </where>
+    </select>
+<!--    根据id查询学员-->
+    <select id="getStudentById" resultType="com.yxl.pojo.Student">
+        select s.*,c.name clazzName from student s LEFT JOIN clazz c on s.clazz_id=c.id where s.id=#{id}
+    </select>
+<!--    统计班级人数-->
+    <select id="getStudentCountData" resultType="java.util.Map">
+        select (
+                   case clazz_id when 1 then 'JavaEE就业163期'
+                                 when 2 then '小黑子训练营'
+                                 when 3 then '前端就业90期'
+                                 when 4 then 'JavaEE就业167期'
+                                 when 5 then '大数据就业58期'
+                                 when 6 then 'JavaEE就业167期'
+                                 else '其他' end
+                   ) clazzType , count(*) total from student group by clazz_id  order by total
+    </select>
+
+<!--    统计学员学历-->
+    <select id="getStudentDegreeData" resultType="java.util.Map">
+        select (
+                   case degree when 1 then '初中'
+                               when 2 then '高中'
+                               when 3 then '大专'
+                               when 4 then '本科'
+                               when 5 then '硕士'
+                               when 6 then '博士' end
+                   ) name, count(*) value from student group by  degree
+    </select>
+<!--    判断班级是否有学院-->
+    <select id="countClazzStudents" resultType="java.lang.Integer">
+        select count(*) from student where clazz_id = #{id}
+    </select>
+</mapper>

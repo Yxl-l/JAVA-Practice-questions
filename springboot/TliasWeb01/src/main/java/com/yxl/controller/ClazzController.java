@@ -1,4 +1,4 @@
-package com.yxl.Controller;
+package com.yxl.controller;
 
 import com.yxl.pojo.Clazz;
 import com.yxl.pojo.ClazzQueryParam;

@@ -1,7 +1,6 @@
-package com.yxl.Controller;
+package com.yxl.controller;
 import com.yxl.pojo.Emp;
 import com.yxl.pojo.EmpQueryParam;
-import com.yxl.pojo.PageResult;
 import com.yxl.service.EmpService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

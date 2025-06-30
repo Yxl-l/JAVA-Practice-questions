@@ -1,4 +1,4 @@
-package com.yxl.Controller;
+package com.yxl.controller;
 
 import com.yxl.pojo.Result;
 import com.yxl.utils.AliyunOSSOperator;

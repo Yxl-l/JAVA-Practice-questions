@@ -14,14 +14,62 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 @Service
 public class EmpServiceImpl implements EmpService {
+
+
     @Autowired
     private EmpMapper empMapper;
     @Autowired
     private  EmpExprMapper empExprMapper;
 
+
+    /**
+     * 修改员工数据
+     */
+    @Override
+    public void putEmp(Emp emp) {
+        //覆盖数据
+        emp.setUpdateTime(LocalDateTime.now());
+        empMapper.putEmp(emp);
+        //删除履历
+        List<Integer> list = Collections.singletonList(emp.getId());
+        empExprMapper.deleteEmpExpr(list);
+        //添加履历
+        Integer empId = emp.getId();
+        List<EmpExpr> expr = emp.getExprList();
+        if (!CollectionUtils.isEmpty(expr)){
+            expr.forEach(empExpr -> empExpr.setEmpId(empId));
+        }
+        empExprMapper.expr(expr);
+    }
+
+
+    /**
+     * 回显员工数据
+     */
+    @Override
+    public Emp getEmpId(Integer id) {
+        return empMapper.getEmpId(id);
+    }
+
+    /**
+     * 批量删除员工
+     */
+    @Override
+    public void delete(List<Integer> ids) {
+        //删除员工
+        empMapper.deleteEmp(ids);
+        //删除履历
+        empExprMapper.deleteEmpExpr(ids);
+    }
+
+    /**
+     * 新增员工
+     */
     @Override
     public void postEmp(Emp emp) {
         emp.setCreateTime(LocalDateTime.now());
@@ -35,7 +83,9 @@ public class EmpServiceImpl implements EmpService {
         }
         empExprMapper.expr(list);
     }
-
+    /**
+     * 条件分页查询
+     */
     @Override
     public PageResult getEmp(EmpQueryParam empQueryParam) {
         PageHelper.startPage(empQueryParam.getPage(),empQueryParam.getPageSize());

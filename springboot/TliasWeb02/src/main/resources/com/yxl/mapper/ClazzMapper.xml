@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yxl.mapper.ClazzMapper">
+
+<!--    添加-->
+    <insert id="postClazz">
+        insert into clazz(name, room, begin_date, end_date, master_id, subject, create_time, update_time) value(#{name},#{room},#{beginDate},#{endDate},#{masterId},#{subject},#{createTime},#{updateTime})
+    </insert>
+    <update id="putClazz">
+        update clazz set name = #{name},
+                         room = #{room},
+                         begin_date = #{beginDate},
+                         end_date = #{endDate},
+                         master_id = #{masterId},
+                         subject = #{subject},
+                         create_time = #{createTime},
+                         update_time = #{updateTime}
+        WHERE id = #{id}
+    </update>
+
+    <!--    * 根据id删除班级-->
+    <delete id="deleteClazz">
+        delete from clazz where id = #{id}
+    </delete>
+    <!--    查询所有-->
+    <select id="getClazz" resultType="com.yxl.pojo.Clazz">
+        select * from clazz
+    </select>
+
+<!--    分页条件查询    -->
+    <select id="getClazzList" resultType="com.yxl.pojo.Clazz">
+        select c.*,e.name master_name from clazz c left join emp e on c.master_id = e.id
+        <where>
+            <if test="name!=null and name!=''">
+               and c.name like concat('%',#{name},'%')
+            </if>
+            <if test="beginDate!=null and endDate!=''">
+               and c.endDate between #{beginDate} and #{endDate}
+            </if>
+        </where>
+    </select>
+    <select id="getClazzId" resultType="com.yxl.pojo.Clazz">
+        select c.*,e.name master_name from clazz c left join emp e on c.master_id = e.id where c.id = #{id}
+    </select>
+</mapper>

@@ -11,7 +11,7 @@ public interface DeptMapper {
     List<Dept> getDept();
 
     @Delete("delete from dept where id = #{id}")
-    void delete(Integer id);
+    Integer delete(Integer id);
 
     @Insert("insert into dept(name,create_time,update_time) value(#{name},#{createTime},#{updateTime}) ")
     void postDept(Dept dept);
@@ -21,4 +21,8 @@ public interface DeptMapper {
 
     @Update("update dept set name=#{name},update_time = #{updateTime} where id=#{id} ")
     void putDept(Dept dept);
+
+    //查询部门下是否有员工
+    @Select("select count(*) from emp where dept_id = #{id}")
+    int deptEmpCount(Integer id);
 }
