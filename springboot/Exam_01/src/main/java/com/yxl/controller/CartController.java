@@ -12,9 +12,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/cart")
 public class CartController {
-
-    @Autowired
-    private CartService cartService;
+@Autowired
+private CartService cartService;
 
     /***
      * 获取所有购物车数据

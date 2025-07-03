@@ -12,17 +12,16 @@ import java.util.List;
 @RestController
 @RequestMapping("/category")
 public class CategoryController {
+@Autowired
+private CategoryService categoryService;
 
-    @Autowired
-    private CategoryService categoryService;
 
     /***
      * 递归查询所有分类数据
      * @return
      */
     @GetMapping
-    public List<Category> list(){
+ public List<Category> list(){
         return categoryService.list();
     }
-
 }

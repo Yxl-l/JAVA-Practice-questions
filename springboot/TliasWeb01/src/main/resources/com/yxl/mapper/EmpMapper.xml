@@ -98,5 +98,9 @@
     <select id="getEmpGenderData" resultType="java.util.Map">
         select if(gender=1,'男','女') name ,count(*) value from emp group by gender
     </select>
+<!--    登陆验证-->
+    <select id="getUsernameAndPassword" resultType="com.yxl.pojo.Emp">
+        select * from emp where username = #{username} and password = #{password}
+    </select>
 
 </mapper>

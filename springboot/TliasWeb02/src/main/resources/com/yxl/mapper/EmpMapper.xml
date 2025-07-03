@@ -88,6 +88,9 @@
                              else '其他' end) pos,
                 count(*) total from emp group by job order by total
     </select>
+    <select id="getUsernameAndPassword" resultType="com.yxl.pojo.Emp">
+        select  * from emp where  username=#{username} and password = #{password}
+    </select>
 
 
 </mapper>

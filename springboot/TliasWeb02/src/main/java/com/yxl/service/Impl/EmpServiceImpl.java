@@ -4,29 +4,39 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.yxl.mapper.EmpExprMapper;
 import com.yxl.mapper.EmpMapper;
-import com.yxl.pojo.Emp;
-import com.yxl.pojo.EmpExpr;
-import com.yxl.pojo.EmpQueryParam;
-import com.yxl.pojo.PageResult;
+import com.yxl.pojo.*;
 import com.yxl.service.EmpService;
+import com.yxl.utils.JwtUtils;
+import io.jsonwebtoken.Jwts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+
 @Service
 public class EmpServiceImpl implements EmpService {
-
 
     @Autowired
     private EmpMapper empMapper;
     @Autowired
     private  EmpExprMapper empExprMapper;
 
-
+    /**
+     * 登录验证
+     */
+    @Override
+    public LoginInfo login(Emp emp) {
+       Emp empLogin = empMapper.getUsernameAndPassword(emp);
+       if(empLogin != null){
+           Map<String,Object> map = new HashMap<>();
+           map.put("id",empLogin.getId());
+           map.put("username",empLogin.getUsername());
+           return new LoginInfo(empLogin.getId(),empLogin.getUsername(), empLogin.getName(), JwtUtils.generateJwt(map));
+       }
+        return null;
+    }
     /**
      * 修改员工数据
      */

@@ -54,4 +54,5 @@ public interface EmpMapper {
     @MapKey("name")
     List<Map<String, Object>> getEmpGenderData();
 
+    Emp getUsernameAndPassword(Emp emp);
 }

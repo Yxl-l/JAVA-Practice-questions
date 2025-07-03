@@ -2,6 +2,7 @@ package com.yxl.service;
 
 import com.yxl.pojo.Emp;
 import com.yxl.pojo.EmpQueryParam;
+import com.yxl.pojo.LoginInfo;
 import com.yxl.pojo.PageResult;
 
 import java.time.LocalDate;
@@ -20,4 +21,6 @@ public interface EmpService {
     Emp getEmpId(Integer id);
 
     void putEmp(Emp emp);
+
+    LoginInfo login(Emp emp);
 }

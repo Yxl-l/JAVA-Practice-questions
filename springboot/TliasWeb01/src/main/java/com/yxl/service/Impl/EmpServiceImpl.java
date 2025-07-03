@@ -2,12 +2,14 @@ package com.yxl.service.Impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.yxl.annotation.LogOperation;
 import com.yxl.mapper.EmpExprMapper;
 import com.yxl.mapper.EmpMapper;
 import com.yxl.pojo.*;
 
 import com.yxl.service.EmpLogService;
 import com.yxl.service.EmpService;
+import com.yxl.utils.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,10 +20,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class EmpServiceImpl implements EmpService {
+
 
     @Autowired
     private EmpMapper empMapper;
@@ -29,6 +34,22 @@ public class EmpServiceImpl implements EmpService {
     private EmpExprMapper empExprMapper;
     @Autowired
     private EmpLogService empLogService;
+
+    /**
+     * 登录验证
+     */
+    @Override
+    public LoginInfo login(Emp emp) {
+        Emp empLogin = empMapper.getUsernameAndPassword(emp);
+        if(empLogin != null){
+            //登录成功生成令牌给登录信息对象
+            Map<String,Object> map = new HashMap<>();
+            map.put("id",empLogin.getId());
+            map.put("username",empLogin.getUsername());
+            return new LoginInfo(empLogin.getId(), empLogin.getUsername(), empLogin.getName(), JwtUtils.generateJwt(map));
+        }
+        return null;
+    }
     /**
      * 修改员工信息和履历
      */
@@ -51,6 +72,7 @@ public class EmpServiceImpl implements EmpService {
     /**
      * 回显员工信息，工作履历
      */
+    @LogOperation
     @Override
     public Emp getEmpId(Integer id) {
         return empMapper.getEmpId(id);
@@ -59,6 +81,7 @@ public class EmpServiceImpl implements EmpService {
     /**
      * 批量删除员工
      */
+    @LogOperation
     @Override
     public void delete(List<Integer> ids) {
         empMapper.deleteEmp(ids);

@@ -17,30 +17,27 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Autowired
     private CategoryMapper categoryMapper;
-
     /***
      * 分类信息查询
-     * @return
      */
     @Override
     public List<Category> list() {
-        List<Category> list = categoryMapper.list();
-        List<Category> topFloor = list.stream().filter(category -> category.getParentId()==0).collect(Collectors.toList());
-        List<Category> children = list.stream().filter(category -> category.getParentId()>0).collect(Collectors.toList());
-        topFloor.forEach(c->findChildren(c,children));
-
-        return topFloor;
+       List<Category> list = categoryMapper.list();
+       List<Category> parents = list.stream().filter(c->c.getParentId()==0).collect(Collectors.toList());
+       List<Category> children = list.stream().filter(c->c.getParentId()>0).collect(Collectors.toList());
+        parents.forEach(c->findChildren(c,children));
+        return parents;
     }
+
 
     /***
      * 递归查找
-     * current:当前执行查找的对象
-     * all:所有子类分类数据
      */
-    public void findChildren(Category category,List<Category> all){
-            List<Category> children = all.stream().filter(c->Objects.equals(c.getParentId(),category.getId())).collect(Collectors.toList());
-            children.forEach(c->findChildren(c,all));
-            category.setChildren(children);
-
+    public void findChildren(Category category , List<Category> all){
+        List<Category> children = all.stream().filter(c->Objects.equals(c.getParentId(),category.getId())).collect(Collectors.toList());
+        children.forEach(c->findChildren(c,all));
+        category.setChildren(children);
     }
+
+
 }
