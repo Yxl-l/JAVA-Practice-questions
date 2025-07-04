@@ -50,7 +50,7 @@ public class OperationLogAspect {
         operateLog.setMethodName(pjp.getSignature().getName());//操作方法名
         operateLog.setMethodParams(Arrays.toString(pjp.getArgs()));//操作方法参数,获取过来是数组要转换String
         operateLog.setCostTime(end-start);//操作耗时
-        operateLog.setReturnValue(result.toString());//操作方法返回值
+        operateLog.setReturnValue(result==null ? "null":result.toString());//操作方法返回值
 //        写入数据库
         operateLogMapper.insert(operateLog);
         log.info("{}.{}方法执行了,执行时间是{}毫秒",pjp.getTarget().getClass().getName(),pjp.getSignature().getName(),end-start);
