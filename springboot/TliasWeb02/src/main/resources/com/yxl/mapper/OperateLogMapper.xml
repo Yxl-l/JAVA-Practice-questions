@@ -1,0 +1,15 @@
+<!--定义Mapper映射文件的约束和基本结构-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yxl.mapper.OperateLogMapper">
+
+<!--插入日志-->
+    <insert id="insert">
+        insert into operate_log (operate_emp_id, operate_time, class_name, method_name, method_params, return_value, cost_time) values (#{operateEmpId}, #{operateTime}, #{className}, #{methodName}, #{methodParams}, #{returnValue}, #{costTime})
+    </insert>
+
+    <select id="getLog" resultType="com.yxl.pojo.OperateLog">
+        select o.*,e.name operateEmpName from operate_log o left join emp e on o.operate_emp_id=e.id order by operate_time
+    </select>
+</mapper>

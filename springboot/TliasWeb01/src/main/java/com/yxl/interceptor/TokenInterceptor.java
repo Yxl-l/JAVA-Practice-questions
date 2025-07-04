@@ -9,7 +9,6 @@ import org.apache.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Map;
 
@@ -18,17 +17,16 @@ import java.util.Map;
 public class TokenInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-       log.info("preHandle ... 执行了");
+       log.info("令牌校验执行了");
         String token = request.getHeader("token"); //3. 获取请求头中的令牌（token）。
-        if(ObjectUtils.isEmpty(token) || JwtUtils.parseJWT(token)==null){
+        Map<String,Object> map = JwtUtils.parseJWT(token);
+        if(ObjectUtils.isEmpty(token) || map==null){
             response.setStatus(HttpStatus.SC_UNAUTHORIZED);
             log.info("令牌不合法不放行");
             return false;
         }
         log.info("令牌合法 放行");
-        Map<String,Object> map = JwtUtils.parseJWT(token);
-        Integer empId = Integer.valueOf(map.get("id").toString());
-        CurrentHolder.setCurrentId(empId);
+        CurrentHolder.setCurrentId(Integer.valueOf(map.get("id").toString()));
         return true;
     }
 
@@ -40,8 +38,9 @@ public class TokenInterceptor implements HandlerInterceptor {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        log.info("afterCompletion ....方法执行完毕且数据渲染后清空当前线程绑定的id ");
+        log.info("方法执行完毕且数据渲染完成，清空当前线程暂存数据");
         //7. 清空当前线程绑定的id
         CurrentHolder.remove();
+
     }
 }

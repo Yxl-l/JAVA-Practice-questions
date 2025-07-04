@@ -3,6 +3,7 @@ package com.yxl.pojo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 
 @Data
@@ -17,5 +18,4 @@ public class OperateLog {
     private String methodParams; //操作方法参数
     private String returnValue; //操作方法返回值
     private Long costTime; //操作耗时
-    private String operateEmpName;//操作人name
 }

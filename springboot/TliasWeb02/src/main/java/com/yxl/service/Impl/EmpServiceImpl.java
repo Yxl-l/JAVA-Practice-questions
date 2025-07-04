@@ -46,15 +46,15 @@ public class EmpServiceImpl implements EmpService {
         emp.setUpdateTime(LocalDateTime.now());
         empMapper.putEmp(emp);
         //删除履历
-        List<Integer> list = Collections.singletonList(emp.getId());
+        List<Integer> list = Arrays.asList(emp.getId());
         empExprMapper.deleteEmpExpr(list);
         //添加履历
         Integer empId = emp.getId();
         List<EmpExpr> expr = emp.getExprList();
         if (!CollectionUtils.isEmpty(expr)){
             expr.forEach(empExpr -> empExpr.setEmpId(empId));
-        }
         empExprMapper.expr(expr);
+        }
     }
 
 

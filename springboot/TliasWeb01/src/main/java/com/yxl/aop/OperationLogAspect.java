@@ -7,7 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -40,7 +39,7 @@ public class OperationLogAspect {
      */
     @Around("execution(* com.yxl.controller.*.delete*(..)) || execution(* com.yxl.controller.*.post*(..)) || execution(* com.yxl.controller.*.put*(..))")
     public Object around(ProceedingJoinPoint pjp) throws Throwable {
-        long start = System.currentTimeMillis();
+            long start = System.currentTimeMillis();
         //调用目标方法
         Object result = pjp.proceed();
         long end = System.currentTimeMillis();
@@ -54,6 +53,7 @@ public class OperationLogAspect {
         operateLog.setReturnValue(result.toString());//操作方法返回值
 //        写入数据库
         operateLogMapper.insert(operateLog);
+        log.info("{}.{}方法执行了,执行时间是{}毫秒",pjp.getTarget().getClass().getName(),pjp.getSignature().getName(),end-start);
         return result;
     }
 

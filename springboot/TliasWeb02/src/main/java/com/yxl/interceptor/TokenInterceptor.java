@@ -15,25 +15,25 @@ import java.util.Map;
 @Component
 @Slf4j
 public class TokenInterceptor implements HandlerInterceptor {
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        log.info("方法preHandle执行了-----------");
         String token = request.getHeader("token");
         Map<String,Object> map = JwtUtils.parseJWT(token);
         if (ObjectUtils.isEmpty(token) || map==null){
+            log.info("令牌非法不放行");
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            log.info("令牌不合法不放行-----------");
             return false;
         }
-        log.info("令牌合法放行-----------");
-        Integer id = Integer.valueOf(map.get("id").toString());
-        CurrentHolder.setCurrentId(id);
+        log.info("令牌合法放行");
+        CurrentHolder.setId((Integer) map.get("id"));
         return true;
-    }
 
+    }
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        log.info("方法执行结束---数据渲染完毕----可以清理暂存数据----");
+        log.info("afterCompletion ....方法执行完毕且数据渲染后清空当前线程暂存数据");
+        //7. 清空当前线程绑定的id
         CurrentHolder.remove();
     }
 }

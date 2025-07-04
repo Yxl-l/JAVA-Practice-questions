@@ -1,18 +1,34 @@
 package com.yxl.utils;
 
-/**
- * 记录当前登录员工ID到ThreadLocal里
- */
-public class CurrentHolder {
-    private static final ThreadLocal<Integer> CURRENT_LOCAL = new ThreadLocal<>();
+import com.yxl.pojo.EmpLogin;
+import com.yxl.pojo.OperateLog;
 
-    public static void setCurrentId(Integer id){
-        CURRENT_LOCAL.set(id);
+public class CurrentHolder {
+    //创建一个ThreadLocal在线程中存储ID
+    private static final ThreadLocal<Integer> CURRENT_LOCAL = new ThreadLocal<>();
+    private static final ThreadLocal<EmpLogin> CURRENT_LOGIN = new ThreadLocal<>();
+    //添加
+    public static void setId(Integer employeeId) {
+        CURRENT_LOCAL.set(employeeId);
     }
-    public static Integer getCurrentId(){
+    //获取ThreadLocal
+    public static Integer getId() {
         return CURRENT_LOCAL.get();
     }
-    public static void remove(){
+    //删除ThreadLocal
+    public static void remove() {
         CURRENT_LOCAL.remove();
+    }
+    //添加
+    public static void setEmpLogin(EmpLogin empLogin) {
+        CURRENT_LOGIN.set(empLogin);
+    }
+    //获取ThreadLocal
+    public static EmpLogin getEmpLogin() {
+        return CURRENT_LOGIN.get();
+    }
+    //删除ThreadLocal
+    public static void removeEmpLogin() {
+        CURRENT_LOGIN.remove();
     }
 }
