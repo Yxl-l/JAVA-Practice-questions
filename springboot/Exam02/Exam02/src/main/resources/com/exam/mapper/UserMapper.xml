@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exam.mapper.UserMapper">
+
+<!--    * 新增用户角色信息-->
+    <insert id="userRole">
+        insert into user_role(user_id,role_id) values
+        <foreach collection="roleIds" item="rid" separator=",">
+            (#{userId}, #{rid})
+        </foreach>
+    </insert>
+
+
+<!--给角色授予权限-->
+    <insert id="postRolePermission">
+        insert into role_permission(role_id,permission_id) values
+        <foreach collection="permissionIds" item="pid" separator=",">
+            (#{roleId}, #{pid})
+        </foreach>
+    </insert>
+
+<!--    *  取消角色权限-->
+    <delete id="deleteRolePermission">
+        delete from role_permission rp where rp.role_id=#{roleId}  and rp.permission_id in
+        <foreach collection="permissionIds" item="pid" open="(" separator="," close=")">
+            #{pid}
+        </foreach>
+    </delete>
+<!--    删除用户全部角色-->
+    <delete id="deleteUserRole">
+        delete from user_role where user_id=#{userId}
+    </delete>
+    <!-- 查询用户权限   distinct去重-->
+    <select id="getPermission" resultType="java.lang.String">
+        select distinct p.permission_name
+        from user u
+            join user_role ur on u.user_id = ur.user_id
+            join role_permission rp on ur.role_id = rp.role_id
+            join permission p on rp.permission_id = p.permission_id
+        where u.user_id = #{userId};
+    </select>
+<!--    //查询到匹配的用户名和密码返回该用户全部信息-->
+    <select id="getUsernameAndPassword" resultType="com.exam.pojo.User">
+        select * from user where user_name=#{userName} and pass_word=#{passWord}
+    </select>
+<!--   用户全部信息&ndash;&gt;-->
+<!--    <select id="getUser" resultType="com.exam.pojo.User">-->
+<!--        SELECT DISTINCT-->
+<!--            u.*,-->
+<!--            r.role_name,-->
+<!--            p.permission_name-->
+<!--        FROM-->
+<!--            user u-->
+<!--                JOIN-->
+<!--            user_role ur ON u.user_id = ur.user_id-->
+<!--                JOIN-->
+<!--            role r ON ur.role_id = r.role_id-->
+<!--                JOIN-->
+<!--            role_permission rp ON r.role_id = rp.role_id-->
+<!--                JOIN-->
+<!--            permission p ON rp.permission_id = p.permission_id-->
+<!--        WHERE-->
+<!--            u.user_id = #{userId};-->
+<!--    </select>-->
+
+
+</mapper>

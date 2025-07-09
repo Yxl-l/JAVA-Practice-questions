@@ -4,6 +4,9 @@ import com.exam.pojo.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 @Mapper
 public interface UserMapper {
@@ -16,5 +19,6 @@ public interface UserMapper {
     /**
      * 新增用户角色信息
      */
-    void userRole(User user);
+    void userRole(@Param("userId") Integer userId, @Param("roleIds") List<Integer> roleIds);
+
 }

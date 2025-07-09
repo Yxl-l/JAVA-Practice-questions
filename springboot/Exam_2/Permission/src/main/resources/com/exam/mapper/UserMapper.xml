@@ -7,7 +7,9 @@
 
     <insert id="userRole">
         insert into user_role(user_id,user_role) values (#{userId},
-                                                       <foreach collection=""
-                                                         )
+        <foreach collection="roleIds" item="rid" separator=",">
+            (#{userId}, #{rid})
+        </foreach>
+           )
     </insert>
 </mapper>
