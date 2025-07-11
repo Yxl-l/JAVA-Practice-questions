@@ -1,4 +1,6 @@
 package com.yxl.pojo;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,8 +17,10 @@ public class Emp {
     private String username; //用户名
     private String password; //密码
     private String name; //姓名
+    @JsonSerialize(using = ToStringSerializer.class)
     private Integer gender; //性别, 1:男, 2:女
     private String phone; //手机号
+    @JsonSerialize(using = ToStringSerializer.class)
     private Integer job; //职位, 1:班主任,2:讲师,3:学工主管,4:教研主管,5:咨询师
     private Integer salary; //薪资
     private String image; //头像
