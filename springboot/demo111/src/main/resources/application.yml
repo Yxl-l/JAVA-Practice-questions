@@ -2,24 +2,23 @@ spring:
   application:
     name: TliasWeb01
   #mysql连接配置
-#  datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://localhost:3306/tlias
-#    username: root
-#    password: 123456
-
-
-#配置数据库连接信息  linux
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://mysql:3306/tlias
-    #docker容器名和容器端口
+    url: jdbc:mysql://localhost:3306/login
     username: root
-    password: 123
-  servlet:
-    multipart:
-      max-file-size: 10MB #单个文件最大大小限制10MB
-      max-request-size: 100MB #单个请求最大大小限制100MB
+    password: 123456
+
+
+##配置数据库连接信息  linux
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://192.168.200.128:3306/tlias
+#    username: root
+#    password: 1234
+#  servlet:
+#    multipart:
+#      max-file-size: 10MB #单个文件最大大小限制10MB
+#      max-request-size: 100MB #单个请求最大大小限制100MB
 
 
 
