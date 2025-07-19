@@ -12,6 +12,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Objects;
+
 @Slf4j
 @CrossOrigin
 @RequestMapping("/user")
@@ -35,15 +37,11 @@ public Result getUserList(@RequestBody UserResult userResult){
     Page<User> page = new Page<>(userResult.getPage(),userResult.getPageSize());
     //构建条件查询
     LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
-    if(userResult.getName()!=null && !userResult.getName().isEmpty()){
-        wrapper.like(User::getName, userResult.getName());
-    }
-    if (userResult.getElement() != null) {
-        wrapper.eq(User::getElement, userResult.getElement());
-    }
-    if (userResult.getWeapon() != null ) {
-        wrapper.eq(User::getWeapon, userResult.getWeapon());
-    }
+
+    wrapper.like(!Objects.isNull(userResult.getName()),User::getName, userResult.getName())
+            .eq(!Objects.isNull(userResult.getElement()),User::getElement, userResult.getElement())
+            .eq(!Objects.isNull(userResult.getWeapon()),User::getWeapon, userResult.getWeapon());
+
     //、执行分页查询
     IPage<User> pageInfo =userService.page(page,wrapper);
     return Result.success(new PageResult(page.getTotal(),pageInfo.getRecords()));
