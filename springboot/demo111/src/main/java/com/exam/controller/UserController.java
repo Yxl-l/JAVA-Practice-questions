@@ -3,6 +3,7 @@ package com.exam.controller;
 import com.exam.pojo.LoginInfo;
 import com.exam.pojo.Result;
 import com.exam.pojo.User;
+import com.exam.pojo.UserResult;
 import com.exam.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,10 +36,10 @@ public class UserController {
 /**
  * 分页列表
  */
-@GetMapping()
-    public Result getUserList(Integer page,Integer pageSize){
-    log.info("分页查询");
-    return Result.success(userService.getUserList(page,pageSize));
+@PostMapping()
+    public Result getUserList(@RequestBody UserResult userResult){
+    log.info("条件分页查询");
+    return Result.success(userService.getUserList(userResult));
 }
 /**
  * id查询

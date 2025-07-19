@@ -6,7 +6,17 @@
 
 
     <select id="getUserList" resultType="com.exam.pojo.User">
-        select * from user
+        select * from user u <where>
+                                 <if test="name!='' and name!=null">
+                                 and u.name like concat('%',#{name},'%')
+                                 </if>
+                                <if test="element!='' and element!=null">
+                                and u.element=#{element}
+                                 </if>
+                                <if test="weapon!='' and weapon!=null">
+                                    and u.weapon=#{weapon}
+                                </if>
+                            </where>
     </select>
     <select id="getUser" resultType="com.exam.pojo.User">
         select * from user where user_id=#{id}

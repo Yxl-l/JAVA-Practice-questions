@@ -5,6 +5,7 @@ import com.exam.mapper.UserMapper;
 import com.exam.pojo.LoginInfo;
 import com.exam.pojo.PageResult;
 import com.exam.pojo.User;
+import com.exam.pojo.UserResult;
 import com.exam.service.UserService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -43,10 +44,10 @@ public class UserServiceImpl implements UserService {
      * 分页列表
      */
     @Override
-    public PageResult getUserList(Integer page, Integer pageSize) {
+    public PageResult getUserList(UserResult userResult) {
 
-        PageHelper.startPage(page,pageSize);
-        List<User> list = userMapper.getUserList();
+        PageHelper.startPage(userResult.getPage(),userResult.getPageSize());
+        List<User> list = userMapper.getUserList(userResult);
         Page<User> p = (Page<User>) list;
         return new PageResult(p.getTotal(),p.getResult());
     }

@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: mybatis-plus-quickstart
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/login?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: 123456
+
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
+  # 设置别名包扫描路径，通过该属性可以给包中的类注册别名
+  type-aliases-package: com.itheima.pojo
+  configuration:
+    #驼峰转换
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: assign_id             # 全局id类型为雪花id    自增长
+      update-strategy: not_null # 更新策略：只更新非空字段
+      #逻辑删除字段
+      logic-delete-field: deleted
+      #值为1表示已删除
+      logic-delete-value: 1
+      #值为0的时候，表示未删除
+      logic-not-delete-value: 0
