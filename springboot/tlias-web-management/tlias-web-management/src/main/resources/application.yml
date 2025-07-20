@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    # 数据库连接四要素
+    url: jdbc:mysql://localhost:3306/web01
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 1234
+
+# 配置Spring事务管理的debug级别日志
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
+
+# 配置MyBatis的日志输出
+mybatis-plus:
+  # xml文件路径
+  mapper-locations: classpath*:/com/itheima/**/*.xml
+  # 别名包路径
+  type-aliases-package: com.itheima.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true    # 开启驼峰命名
+  global-config:
+    db-config:
+      id-type: auto

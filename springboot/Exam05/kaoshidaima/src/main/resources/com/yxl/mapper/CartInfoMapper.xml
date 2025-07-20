@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yxl.mapper.CartInfoMapper">
+
+
+    <select id="CartInfo" resultMap="CartInfoMap">
+        select * from tb_cart
+    </select>
+    <resultMap id="CartInfoMap" type="com.yxl.pojo.CartInfo">
+        <result column="merchant_name" property="merchantName"/>
+        <result column="merchant_Id" property="merchantId"/>
+        <collection property="carts" ofType="com.yxl.pojo.Cart">
+            <result column="id" property="id"/>
+            <result column="item_id" property="itemId"/>
+
+            <result column="item_name" property="itemName"/>
+            <result column="spec" property="spec"/>
+            <result column="price" property="price"/>
+            <result column="real_price" property="realPrice"/>
+            <result column="count" property="count"/>
+        </collection>
+    </resultMap>
+</mapper>
