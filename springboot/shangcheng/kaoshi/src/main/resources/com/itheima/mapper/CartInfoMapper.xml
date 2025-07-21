@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.mapper.CartInfoMapper">
+
+    <select id="findAll" resultMap="cartInfoMap">
+        select * from cart
+    </select>
+    <resultMap id="cartInfoMap" type="com.itheima.pojo.CartInfo">
+        <result column="merchant_id" property="merchantId"/>
+        <result column="merchant_name" property="merchantName"/>
+        <collection property="carts" ofType="com.itheima.pojo.Cart">
+            <result column="id" property="id"/>
+            <result column="item_id" property="itemId"/>
+            <result column="item_name" property="itemName"/>
+            <result column="price" property="price"/>
+            <result column="count" property="count"/>
+        </collection>
+    </resultMap>
+</mapper>
